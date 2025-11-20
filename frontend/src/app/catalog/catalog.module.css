@@ -87,6 +87,7 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
@@ -216,7 +217,7 @@
 }
 
 
-/* --- Search bar --- */
+/* search bar */
 .catalogSearchBar {
   display: flex;
   flex-wrap: wrap;

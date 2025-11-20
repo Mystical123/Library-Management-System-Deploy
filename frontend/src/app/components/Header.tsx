@@ -1,14 +1,17 @@
 import Link from "next/link";
+import styles from "./Header.module.css";
 
 export default function Header() {
   return (
-    <header className="site-header">
-      <nav className="site-nav" aria-label="Main navigation">
-        <div className="nav-left">
-          <Link href="/" className="brand">Library Management System</Link>
+    <header className={styles.siteHeader}>
+      <nav className={styles.siteNav} aria-label="Main navigation">
+        <div className={styles.navLeft}>
+          <Link href="/" className={styles.brand}>
+            Library Management System
+          </Link>
         </div>
 
-        <div className="nav-right">
+        <div className={styles.navRight}>
           <Link href="/">Home</Link>
           <Link href="/catalog">Catalog</Link>
           <Link href="/membership">Membership</Link>
@@ -17,8 +20,10 @@ export default function Header() {
           <Link href="/about">About</Link>
           <Link href="/credits">Credits</Link>
           <Link href="/contact">Contact</Link>
-          <button id="login-btn" className="ghost">Login</button>
-          <button id="cart-btn" className="ghost">
+          <button id="login-btn" className={styles.ghost}>
+            Login
+          </button>
+          <button id="cart-btn" className={styles.ghost}>
             Cart <span id="cart-count">0</span>
           </button>
         </div>

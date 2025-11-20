@@ -15,6 +15,7 @@ export default function WishlistPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  // fetch wishlist items from api
   const fetchWishlist = async () => {
     try {
       setLoading(true);
@@ -30,12 +31,14 @@ export default function WishlistPage() {
     }
   };
 
+  // load the wishlist when page first loads
   useEffect(() => {
     fetchWishlist();
   }, []);
 
+  // remove element from wishlist
   const remove = async (wishlistId: number) => {
-    const prev = [...items];
+    const prev = [...items]; // save prev if needed
     setItems((s) => s.filter((i) => i.wishlist_id !== wishlistId));
     try {
       const res = await fetch(`/api/wishlist/${wishlistId}`, { method: "DELETE" });
