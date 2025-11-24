@@ -1,89 +1,102 @@
 "use client";
-import { FormEvent, useState } from "react";
-import emailjs from "emailjs-com";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<string>("");
-  const [statusType, setStatusType] = useState<"success" | "error" | "">("");
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [status, setStatus] = useState<null | "success" | "error">(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const form = e.target as HTMLFormElement;
+    if (!formRef.current) return;
 
-    emailjs
-      .sendForm(
-        "service_wp5032e", // Your Service ID
-        "template_0kqcepg", // Your Template ID
-        form,
-        "KyHI9y3Pnfv8APkGw" // Your Public Key
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setStatus("Message sent!");
-          setStatusType("success");
-          form.reset();
-        },
-        (error) => {
-          console.error(error.text);
-          setStatus("Failed to send message");
-          setStatusType("error");
-        }
+    try {
+      const result = await emailjs.sendForm(
+        "service_xxxxx",      // <-- Replace with your Service ID
+        "template_xxxxx",     // <-- Replace with your Template ID
+        formRef.current,
+        "public_xxxxx"        // <-- Replace with your Public Key
       );
+
+      console.log("Email sent:", result.text);
+      setStatus("success");
+      formRef.current.reset();
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      setStatus("error");
+    }
   };
 
   return (
-    <>
-      <Header />
+    <main className="max-w-3xl mx-auto py-20 px-6">
+      <h1 className="text-4xl font-serif tracking-wide mb-3 text-deep-brown">
+        Contact Us
+      </h1>
 
-      <main className="contact-page">
-        <section className="contact-form-section">
-          <h2>Contact Us</h2>
-          <p>
-            If you have questions, feedback, or issues, send us a message and our team will respond as soon as possible.
-          </p>
+      <p className="text-muted mb-10 max-w-2xl">
+        If you have any questions, concerns, or feedback regarding the Project
+        Delta Library System, please fill out the form below. Our team will get
+        back to you as soon as possible.
+      </p>
 
-          <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
-            <div className="field">
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" required />
-            </div>
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className="bg-white/70 shadow-md border border-deep-brown/20 rounded-xl p-8 flex flex-col gap-6"
+      >
+        {/* Full Name */}
+        <div>
+          <label className="block text-sm font-semibold mb-1">Full Name</label>
+          <input
+            type="text"
+            name="user_name"
+            required
+            className="w-full border rounded-md p-2 bg-white/90"
+            placeholder="Enter your name"
+          />
+        </div>
 
-            <div className="field">
-              <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" required />
-            </div>
+        {/* Email */}
+        <div>
+          <label className="block text-sm font-semibold mb-1">Email Address</label>
+          <input
+            type="email"
+            name="user_email"
+            required
+            className="w-full border rounded-md p-2 bg-white/90"
+            placeholder="example@gmail.com"
+          />
+        </div>
 
-            <div className="field">
-              <label htmlFor="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" />
-            </div>
+        {/* Message */}
+        <div>
+          <label className="block text-sm font-semibold mb-1">Message</label>
+          <textarea
+            name="message"
+            required
+            className="w-full border rounded-md p-2 bg-white/90 min-h-[130px]"
+            placeholder="Write your message here..."
+          />
+        </div>
 
-            <div className="field full">
-              <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows={6} required />
-            </div>
+        {/* Submit */}
+        <button
+          type="submit"
+          className="bg-deep-brown text-ivory font-semibold py-2 rounded-md hover:bg-black transition"
+        >
+          Send Message
+        </button>
 
-            <div className="field full">
-              <button type="submit">Send Message</button>
-            </div>
-          </form>
-
-          <p
-            id="form-status"
-            className={`muted ${statusType === "success" ? "success" : ""} ${statusType === "error" ? "error" : ""}`}
-            aria-live="polite"
-          >
-            {status}
-          </p>
-        </section>
-      </main>
-
-      <Footer />
-    </>
+        {/* Status Messages */}
+        {status === "success" && (
+          <p className="text-green-700 text-sm mt-2">Message sent successfully!</p>
+        )}
+        {status === "error" && (
+          <p className="text-red-700 text-sm mt-2">Failed to send message.</p>
+        )}
+      </form>
+    </main>
   );
 }
-

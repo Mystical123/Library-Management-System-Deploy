@@ -1,10 +1,10 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import Link from "next/link";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "The Exhibition · Library Management System",
-  description: "A modern dark-mode interface for managing the library catalogue, members, and loans.",
+  title: "Project Delta – Library Management System",
+  description: "CSC 131 Library Management System · Sacramento State",
 };
 
 export default function RootLayout({
@@ -16,52 +16,67 @@ export default function RootLayout({
     <html lang="en">
       <body className="app-body">
         <div className="app-shell">
-          {/* HEADER / NAV */}
-          <header className="header">
-            <div className="header-inner">
-              <div className="brand">
-                <div className="brand-mark" />
-                <div className="brand-text">
-                  <span className="brand-title">The Exhibition</span>
-                  <span className="brand-subtitle">
-                    Delta Library Management System
-                  </span>
-                </div>
-              </div>
+          {/* SITE HEADER */}
+          <header className="site-header">
+            <div className="site-header-inner">
+              <Link href="/" className="site-logo">
+                <span className="site-logo-title">Project Delta</span>
+                <span className="site-logo-subtitle">Library System</span>
+              </Link>
 
-              <nav className="nav">
-                <Link href="/">Home</Link>
-                <Link href="/about">About</Link>
-                <Link href="/credits">Credits</Link>
-                <Link href="/contact">Contact</Link>
+              <nav className="site-nav">
+                <NavLink href="/">Home</NavLink>
+                <NavLink href="/catalog">Catalog</NavLink>
+                <NavLink href="/wishlist">Wishlist</NavLink>
+                <NavLink href="/about">About</NavLink>
+                <NavLink href="/contact">Contact</NavLink>
+                <NavLink href="/credits">Credits</NavLink>
               </nav>
             </div>
           </header>
 
           {/* MAIN CONTENT */}
-          <main className="main">
-            <div className="main-inner">{children}</div>
-          </main>
+          <main className="site-main">{children}</main>
 
           {/* FOOTER */}
-          <footer className="footer">
-            <div className="footer-inner">
-              <div className="footer-left">
-                <p className="footer-title">The Exhibition</p>
-                <p className="footer-subtitle">
-                  A dark-mode interface for the Delta Library System · CSC-131
-                </p>
-              </div>
-              <div className="footer-right">
-                <p className="footer-meta">
-                  © {new Date().getFullYear()} Team Delta · All rights
-                  reserved.
-                </p>
+          <footer className="site-footer">
+            <div className="site-footer-inner">
+              <p>© {new Date().getFullYear()} Project Delta · CSC 131</p>
+              <div className="site-footer-links">
+                <a href="https://linkedin.com" target="_blank">
+                  LinkedIn
+                </a>
+                <a href="https://github.com" target="_blank">
+                  GitHub
+                </a>
+                <a href="https://facebook.com" target="_blank">
+                  Facebook
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                  Twitter
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                  Instagram
+                </a>
               </div>
             </div>
           </footer>
         </div>
       </body>
     </html>
+  );
+}
+
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link href={href} className="nav-link">
+      {children}
+    </Link>
   );
 }

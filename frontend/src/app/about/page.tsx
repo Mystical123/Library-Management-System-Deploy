@@ -1,84 +1,108 @@
-// frontend/src/app/about/page.tsx
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
 export default function AboutPage() {
   return (
-    <>
-      <Header/>
-      <main className="about-page">
-        <div className="about-container">
-          <h1>Meet the Team — Project Delta</h1>
+    <div className="about-page">
+      <header>
+        <h1 className="page-title">Meet the Team — Project Delta</h1>
+        <p className="page-intro">
+          Project Delta is a Library Management System developed for CSC 131 at
+          Sacramento State. Our team collaborated on requirements, design, and
+          implementation to model how real-world software engineering projects
+          are built.
+        </p>
+      </header>
 
-          {/* copy more team-member cards here */}
-          <section className="about-team">
-            <article className="about-card">
-              <h2>Iesha Khabra</h2>
-              <ul>
-                <li><strong>Education:</strong> Pursuing B.S. Computer Science, Sacramento State</li>
-                <li><strong>Skills:</strong> TypeScript, React, Node.js</li>
-                <li><strong>Experience:</strong> Tech Fellow — CodePath</li>
-              </ul>
-            </article>
+      <section>
+        <h2 className="text-subheading">Project Team</h2>
+        <div className="about-team-grid">
+          {/* Iesha */}
+          <article className="card">
+            <h3 className="about-card-name">Iesha Khabra</h3>
+            <ul className="about-card-list">
+              <li>
+                <strong>Education:</strong> Pursuing B.S. Computer Science,
+                Sacramento State
+              </li>
+              <li>
+                <strong>Skills:</strong> TypeScript, React, Node.js
+              </li>
+              <li>
+                <strong>Experience:</strong> Tech Fellow — CodePath
+              </li>
+            </ul>
+          </article>
 
-            {/* copy more team-member cards here */}
-            <article className="about-card">
-              <h2>Sukhdip Sandhu</h2>
-              <ul>
-                <li><strong>Education:</strong> Pursuing B.S. Computer Science, Sacramento State</li>
-                <li><strong>Skills:</strong> C++, Java, HTML, CSS, SQL</li>
-              </ul>
-            </article>
+          {/* You */}
+          <article className="card">
+            <h3 className="about-card-name">Sukhdip Sandhu</h3>
+            <ul className="about-card-list">
+              <li>
+                <strong>Education:</strong> Pursuing B.S. Computer Science,
+                Sacramento State
+              </li>
+              <li>
+                <strong>Skills:</strong> C++, Java, HTML, CSS, SQL
+              </li>
+              <li>
+                <strong>Experience:</strong> Frontend & UI design for Project
+                Delta
+              </li>
+            </ul>
+          </article>
 
-            <article className="about-card">
-              <h2> Dino Velagic</h2>
-              <ul>
-                <li><strong>Education:</strong> Pursuing B.S. Computer Science, Sacramento State</li>
-                <li><strong>Skills:</strong> N/A </li>
-                <li><strong>Experience:</strong> N/A </li>
-              </ul>
-            </article>
+          {/* Dino */}
+          <article className="card">
+            <h3 className="about-card-name">Dino Velagic</h3>
+            <ul className="about-card-list">
+              <li>
+                <strong>Education:</strong> Pursuing B.S. Computer Science,
+                Sacramento State
+              </li>
+              <li>
+                <strong>Skills:</strong> N/A
+              </li>
+              <li>
+                <strong>Experience:</strong> N/A
+              </li>
+            </ul>
+          </article>
 
-            <article className="about-card">
-              <h2> Andy Wong </h2>
-              <ul>
-                <li><strong>Education:</strong> Pursuing B.S. Computer Science, Sacramento State</li>
-                <li><strong>Skills:</strong> N/A </li>
-                <li><strong>Experience:</strong> N/A </li>
-              </ul>
-            </article>
+          {/* Andy */}
+          <article className="card">
+            <h3 className="about-card-name">Andy Wong</h3>
+            <ul className="about-card-list">
+              <li>
+                <strong>Education:</strong> Pursuing B.S. Computer Science,
+                Sacramento State
+              </li>
+              <li>
+                <strong>Skills:</strong> N/A
+              </li>
+              <li>
+                <strong>Experience:</strong> N/A
+              </li>
+            </ul>
+          </article>
 
-            <article className="about-card">
-              <h2> Andrew Jones </h2>
-              <ul>
-                <li><strong>Education:</strong> Pursuing B.S. Computer Science, Sacramento State</li>
-                <li><strong>Skills:</strong> N/A </li>
-                <li><strong>Experience:</strong> N/A </li>
-              </ul>
-            </article>
+          {/* Andrew */}
+          <article className="card">
+            <h3 className="about-card-name">Andrew Jones</h3>
+            <ul className="about-card-list">
+              <li>
+                <strong>Education:</strong> Pursuing B.S. Computer Science,
+                Sacramento State
+              </li>
+              <li>
+                <strong>Skills:</strong> N/A
+              </li>
+              <li>
+                <strong>Experience:</strong> N/A
+              </li>
+            </ul>
+          </article>
 
-            <article className="about-card">
-              <h2> David Stelzer </h2>
-              <ul>
-                <li><strong>Education:</strong> Pursuing B.S. Computer Science, Sacramento State</li>
-                <li><strong>Skills:</strong> N/A </li>
-                <li><strong>Experience:</strong> N/A </li>
-              </ul>
-            </article>
-
-            <article className="about-card">
-              <h2> Gabriel </h2>
-              <ul>
-                <li><strong>Education:</strong> Pursuing B.S. Computer Science, Sacramento State</li>
-                <li><strong>Skills:</strong> N/A </li>
-                <li><strong>Experience:</strong> N/A </li>
-              </ul>
-            </article>
-          
-        </section>
+          {/* Add more teammates here if needed */}
         </div>
-      </main>
-      <Footer />
-    </>
+      </section>
+    </div>
   );
 }
