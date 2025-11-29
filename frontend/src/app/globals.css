@@ -9,18 +9,10 @@
   --card-bg: #fbf6ed;
 }
 
-<<<<<<< HEAD
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-=======
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
->>>>>>> origin/main
 }
 
 html, body, #__next {
@@ -35,12 +27,7 @@ body {
   color: var(--deep-brown);
 }
 
-<<<<<<< HEAD
-/* App shell */
-
-.app-body {
-  min-height: 100vh;
-}
+/* ====== App Shell ====== */
 
 .app-shell {
   min-height: 100vh;
@@ -48,7 +35,7 @@ body {
   flex-direction: column;
 }
 
-/* Header */
+/* ===== HEADER ===== */
 
 .site-header {
   border-bottom: 1px solid var(--border-sand);
@@ -106,7 +93,7 @@ body {
   border-color: var(--border-sand);
 }
 
-/* Main content */
+/* ===== MAIN CONTENT ===== */
 
 .site-main {
   flex: 1;
@@ -115,7 +102,7 @@ body {
   padding: 1.75rem 1.5rem 2.5rem;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 
 .site-footer {
   border-top: 1px solid var(--border-sand);
@@ -151,7 +138,7 @@ body {
   color: var(--deep-brown);
 }
 
-/* Generic page helpers */
+/* ===== GENERIC TYPOGRAPHY ===== */
 
 .page-title {
   font-family: "Georgia", "Times New Roman", serif;
@@ -165,6 +152,8 @@ body {
   color: var(--muted);
   margin-bottom: 1.5rem;
 }
+
+/* ===== CARDS ===== */
 
 .card-grid {
   display: grid;
@@ -180,7 +169,7 @@ body {
   box-shadow: 0 6px 14px rgba(15, 12, 6, 0.04);
 }
 
-/* About / team cards */
+/* ===== ABOUT ===== */
 
 .about-page {
   display: flex;
@@ -210,219 +199,29 @@ body {
   margin-top: 0.3rem;
 }
 
-/* Simple CTA links */
+/* ===== CONTACT ===== */
 
-.primary-link {
-  display: inline-block;
-  padding: 0.45rem 1.1rem;
-  border-radius: 999px;
-  border: 1px solid var(--border-sand);
-  background: var(--bg-sand);
-  color: var(--deep-brown);
-  font-size: 0.9rem;
-  text-decoration: none;
-  font-weight: 500;
-  margin-right: 0.5rem;
-}
-
-.primary-link:hover {
-  filter: brightness(0.97);
-}
-
-.secondary-link {
-  font-size: 0.9rem;
-  text-decoration: underline;
-  color: var(--muted);
-}
-
-.secondary-link:hover {
-  color: var(--deep-brown);
-}
-
-
-
-.museum-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.4fr);
-  gap: 2.4rem;
-  align-items: stretch;
-  margin-bottom: 2.6rem;
-}
-
-.museum-hero-image {
-  border-radius: 1.6rem;
-  overflow: hidden;
-  background-image: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.55),
-      rgba(0, 0, 0, 0.05)
-    ),
-    url("/books-hero.jpg");
-  background-size: cover;
-  background-position: center;
-  min-height: 260px;
-}
-
-.museum-hero-card {
-  border-radius: 1.6rem;
-  background: linear-gradient(
-    140deg,
-    rgba(16, 16, 20, 0.98),
-    rgba(8, 8, 10, 0.98)
-  );
-  border: 1px solid var(--border-subtle);
-  padding: 1.8rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.museum-eyebrow {
-  margin: 0 0 0.35rem 0;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.museum-hero-title {
-  margin: 0 0 0.9rem 0;
-  font-family: "Georgia", "Times New Roman", serif;
-  font-size: 2.1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.museum-hero-body {
-  margin: 0 0 1.4rem 0;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  max-width: 28rem;
-}
-
-.museum-hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-}
-
-.museum-primary-btn,
-.museum-ghost-btn {
-  border-radius: 999px;
-  font-size: 0.85rem;
-  padding: 0.5rem 1.4rem;
-  border: 1px solid var(--border-subtle);
-  cursor: pointer;
-}
-
-.museum-primary-btn {
-  background: linear-gradient(to right, #f97316, #fb7185);
-  color: #050508;
-  border: none;
-}
-
-.museum-ghost-btn {
-  background: transparent;
-  color: var(--accent-soft);
-}
-
-/* ===== “OUR HIGHLIGHTS” STYLE ROW ===== */
-
-.museum-highlights {
-  border-top: none;
-  padding-top: 0.4rem;
-}
-
-.museum-highlight-row {
-  list-style: none;
-  padding: 0;
-  margin: 1.2rem 0 0 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.4rem;
-}
-
-.museum-highlight-card {
-  background: linear-gradient(
-    150deg,
-    rgba(24, 24, 32, 0.96),
-    rgba(10, 10, 12, 0.96)
-  );
-  border-radius: 1.4rem;
-  padding: 1.1rem 1.2rem;
-  border: 1px solid rgba(63, 63, 80, 0.9);
-}
-
-.museum-highlight-title {
-  margin: 0 0 0.3rem 0;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--accent-soft);
-}
-
-.museum-highlight-sub {
-  margin: 0;
-  font-size: 0.86rem;
-  color: var(--text-muted);
-}
-
-/* Responsive tweak */
-@media (max-width: 800px) {
-  .museum-hero {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-
-/* ===== HOME PAGE SPECIFIC ===== */
-
-.home-page {
-  display: flex;
-  flex-direction: column;
-  gap: 2.25rem;
-}
-
-/* Hero */
-
-.home-hero {
-  margin-top: 0.25rem;
-}
-
-.home-hero-panel {
-  background-color: var(--card-bg);
+.contact-form-container {
+  background: var(--card-bg);
   border-radius: 1rem;
   border: 1px solid var(--border-sand);
-  padding: 1.75rem 2rem;
-  box-shadow: 0 14px 45px rgba(15, 12, 6, 0.09);
+  padding: 1.8rem 2rem;
+  box-shadow: 0 8px 28px rgba(15, 12, 6, 0.06);
 }
 
-.home-hero-actions {
-  margin-top: 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-/* Features */
-
-.home-features {
-  margin-top: 0.5rem;
-}
-
-.section-heading {
-  font-size: 1.35rem;
+.contact-label {
+  display: block;
   font-weight: 600;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.25rem;
 }
 
-.card-title {
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-
-.card-body {
-  font-size: 0.95rem;
-  color: var(--muted);
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border-sand);
+  border-radius: 0.5rem;
+  background: var(--bg-ivory);
 }
 
 /* ===== CATALOG ===== */
@@ -468,7 +267,6 @@ body {
   font-size: 0.9rem;
 }
 
-
 /* ===== CREDITS ===== */
 
 .credits-list {
@@ -494,82 +292,3 @@ body {
   color: var(--muted);
   font-size: 0.92rem;
 }
-
-/* ===== CONTACT ===== */
-
-.contact-form-container {
-  background: var(--card-bg);
-  border-radius: 1rem;
-  border: 1px solid var(--border-sand);
-  padding: 1.8rem 2rem;
-  box-shadow: 0 8px 28px rgba(15, 12, 6, 0.06);
-}
-
-.contact-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.contact-input,
-.contact-textarea {
-  width: 100%;
-  padding: 0.55rem 0.75rem;
-  border: 1px solid var(--border-sand);
-  border-radius: 0.5rem;
-  background: var(--ivory);
-}
-=======
-/* small global accessibility helpers */
-a:focus, button:focus, input:focus, textarea:focus {
-  outline-offset: 2px;
-  outline: 3px solid rgba(0, 0, 0, 0.06);
-}
-
-/* default link color update */
-a {
-  color: var(--deep-brown);
-}
-
-/* site layout helpers used by multiple pages/components */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
-
-/* keep site header/footer base styling global */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: var(--brand-strong); /* you can change this to match teammate if needed */
-  padding: 0.75rem 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  color: var(--foreground);
-}
-
-.site-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.nav-left .brand {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #fff;
-  text-decoration: none;
-}
-
-/* default utility for avatars used in some cards */
-.avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 999px;
-  object-fit: cover;
-}
->>>>>>> origin/main
