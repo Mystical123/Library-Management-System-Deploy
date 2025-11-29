@@ -1,55 +1,63 @@
+"use client";
+
 export default function HomePage() {
   return (
-    <div className="home-page">
-      {/* HERO PANEL */}
-      <section className="home-hero">
-        <div className="home-hero-panel">
-          <h1 className="page-title">Welcome to the Project Delta Library System</h1>
-          <p className="page-intro">
-            Explore our digital catalog, manage reservations, track borrowed books, and
-            navigate the library system with ease. Designed for CSC 131 – Software Engineering,
-            this interface brings clarity and structure to our system&apos;s core features.
+    <main className="home-container">
+      {/* HERO CARD */}
+      <section className="hero-wrapper">
+        <div className="hero-card">
+          <h1 className="hero-title">
+            Welcome to Project Delta Library System
+          </h1>
+
+          <p className="hero-body">
+            Explore our digital catalog, manage reservations, track borrowed
+            books, and navigate the library system with ease. Designed for
+            CSC 131 — Software Engineering, this interface brings clarity and
+            structure to our system’s core features.
           </p>
 
-          <div className="home-hero-actions">
-            <a href="/catalog" className="primary-link">
+          <div className="hero-actions">
+            <a href="/catalog" className="hero-btn-primary">
               Browse Catalog
             </a>
-            <a href="/about" className="secondary-link">
-              About the System
+            <a href="/about" className="hero-btn-secondary">
+              About the Team
             </a>
           </div>
         </div>
       </section>
 
-      {/* FEATURES SECTION */}
-      <section className="home-features">
-        <h2 className="section-heading">Key Features</h2>
+      {/* FEATURES GRID */}
+      <section className="features-wrapper">
+        <h2 className="features-heading">Key Features</h2>
 
-        <div className="card-grid">
-          <article className="card">
-            <h3 className="card-title">Catalog</h3>
-            <p className="card-body">
-              Search through the library collection with detailed book information and
-              availability across branches.
+        <div className="features-grid">
+          <div className="feature-card">
+            <h3 className="feature-title">Catalog</h3>
+            <p className="feature-body">
+              Search through the library collection with detailed book
+              information and availability across branches.
             </p>
-          </article>
+          </div>
 
-          <article className="card">
-            <h3 className="card-title">Wishlist</h3>
-            <p className="card-body">
-              Save books you&apos;re interested in and keep track of titles you want to borrow later.
+          <div className="feature-card">
+            <h3 className="feature-title">Wishlist</h3>
+            <p className="feature-body">
+              Save books you're interested in and keep track of titles to borrow
+              later.
             </p>
-          </article>
+          </div>
 
-          <article className="card">
-            <h3 className="card-title">Reservations</h3>
-            <p className="card-body">
-              View and manage reserved books with clear pickup expectations and queue positions.
+          <div className="feature-card">
+            <h3 className="feature-title">Reservations</h3>
+            <p className="feature-body">
+              View and manage reserved books with clear pickup expectations and
+              queue positions.
             </p>
-          </article>
+          </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

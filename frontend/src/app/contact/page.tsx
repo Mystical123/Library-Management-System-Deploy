@@ -1,104 +1,85 @@
 "use client";
 
-import { useRef, useState, FormEvent } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
-  const formRef = useRef<HTMLFormElement | null>(null);
-  const [status, setStatus] = useState<null | "success" | "error">(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!formRef.current) return;
 
     try {
-      const result = await emailjs.sendForm(
-        "service_xxxxx",   // TODO: replace with your actual Service ID
-        "template_xxxxx",  // TODO: replace with your Template ID
+      await emailjs.sendForm(
+        "service_xxxxx",     // Replace with your Service ID
+        "template_xxxxx",    // Replace with your Template ID
         formRef.current,
-        "public_xxxxx"     // TODO: replace with your Public Key
+        "public_xxxxx"       // Replace with your Public Key
       );
 
-      console.log("Email sent:", result.text);
       setStatus("success");
       formRef.current.reset();
     } catch (err) {
-      console.error("EmailJS Error:", err);
+      console.error("EmailJS error:", err);
       setStatus("error");
     }
   };
 
   return (
     <main className="max-w-3xl mx-auto py-20 px-6">
-      <h1 className="text-4xl font-serif tracking-wide mb-3 text-deep-brown">
-        Contact Us
-      </h1>
-
-      <p className="text-muted mb-10 max-w-2xl">
-        If you have any questions, concerns, or feedback regarding the Project
-        Delta Library System, please fill out the form below. Our team will get
-        back to you as soon as possible.
+      <h1 className="page-title mb-3">Contact Us</h1>
+      <p className="page-intro mb-10">
+        Have questions or feedback? Fill out the form and we’ll get back to you.
       </p>
 
       <form
         ref={formRef}
-        onSubmit={handleSubmit}
-        className="bg-white/70 shadow-md border border-deep-brown/20 rounded-xl p-8 flex flex-col gap-6"
+        onSubmit={sendEmail}
+        className="contact-form-container flex flex-col gap-6"
       >
-        {/* Full Name */}
         <div>
-          <label className="block text-sm font-semibold mb-1">Full Name</label>
+          <label className="contact-label">Full Name</label>
           <input
-            type="text"
             name="user_name"
             required
-            className="w-full border rounded-md p-2 bg-white/90"
-            placeholder="Enter your name"
+            className="contact-input"
+            placeholder="Your Name"
           />
         </div>
 
-        {/* Email */}
         <div>
-          <label className="block text-sm font-semibold mb-1">Email Address</label>
+          <label className="contact-label">Email Address</label>
           <input
-            type="email"
             name="user_email"
+            type="email"
             required
-            className="w-full border rounded-md p-2 bg-white/90"
+            className="contact-input"
             placeholder="example@gmail.com"
           />
         </div>
 
-        {/* Message */}
         <div>
-          <label className="block text-sm font-semibold mb-1">Message</label>
+          <label className="contact-label">Message</label>
           <textarea
             name="message"
             required
-            className="w-full border rounded-md p-2 bg-white/90 min-h-[130px]"
-            placeholder="Write your message here..."
+            className="contact-textarea"
+            placeholder="Write your message…"
+            rows={6}
           />
         </div>
 
-        {/* Submit */}
-        <button
-          type="submit"
-          className="bg-deep-brown text-ivory font-semibold py-2 rounded-md hover:bg-black transition"
-        >
+        <button className="primary-link" type="submit">
           Send Message
         </button>
 
-        {/* Status Messages */}
         {status === "success" && (
-          <p className="text-green-700 text-sm mt-2">
-            Message sent successfully!
-          </p>
+          <p className="text-green-700">Message sent successfully!</p>
         )}
         {status === "error" && (
-          <p className="text-red-700 text-sm mt-2">
-            Failed to send message.
-          </p>
+          <p className="text-red-700">Message failed to send.</p>
         )}
       </form>
     </main>

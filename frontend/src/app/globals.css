@@ -157,9 +157,25 @@ body {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 1.4rem;
 }
+
+/* HOME PAGE FEATURE GRID (overrides default card-grid only on home) */
+.home-features .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.6rem;
+
+}
+
+/* Wider home feature cards */
+.home-features .card {
+  max-width: 430px;
+}
+
+
+
 
 .card {
   background-color: var(--card-bg);
@@ -167,6 +183,7 @@ body {
   border: 1px solid var(--border-sand);
   padding: 1rem 1.2rem;
   box-shadow: 0 6px 14px rgba(15, 12, 6, 0.04);
+
 }
 
 /* ===== ABOUT ===== */
@@ -291,4 +308,144 @@ body {
 .credits-role {
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+
+/* ===== HOME PAGE LAYOUT ===== */
+
+.home-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* HERO SECTION */
+.hero-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.8rem;
+  margin-bottom: 2.7rem;
+}
+
+.hero-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-sand);
+  border-radius: 1.2rem;
+  padding: 2.2rem 2.4rem;
+  max-width: 780px;
+  box-shadow: 0 20px 60px rgba(15, 12, 6, 0.1);
+}
+
+.hero-title {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.hero-body {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 1.4rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.85rem 1.9rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration:none; 
+
+  border-radius: 9999px;
+  background-color: #d6c39b;
+  color: #3b2e1c;
+
+  transition: all 0.25s ease;
+}
+
+.hero-btn-primary:hover {
+  background-color: #c8b288;
+  transform: translateY(-2px);
+}
+
+
+/* Secondary CTA */
+.hero-btn-secondary {
+  color: var(--muted);
+  text-decoration: underline;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.hero-btn-secondary:hover {
+  color: var(--deep-brown);
+}
+
+/* FEATURES SECTION */
+.features-wrapper {
+  margin-top: 1rem;
+}
+
+.features-heading {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+}
+
+/* Feature Cards */
+.feature-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-sand);
+  border-radius: 1.1rem;
+  padding: 1.3rem 1.4rem;
+  box-shadow: 0 12px 35px rgba(15, 12, 6, 0.07);
+}
+
+.feature-title {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.feature-body {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.85rem 1.9rem;
+  font-weight: 600;
+  font-size: 1rem;
+
+  border-radius: 9999px; /* keeps perfect pill no matter the text */
+  border: 2px solid #d2c7b6;
+
+  background-color: #f8f4ee;
+  color: #6b4e32;
+
+  transition: all 0.25s ease;
+}
+
+.hero-btn-secondary:hover {
+  background-color: #ece5da;
+  transform: translateY(-2px);
 }
