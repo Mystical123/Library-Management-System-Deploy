@@ -1,55 +1,23 @@
 "use client";
-<<<<<<< HEAD
 
-import { useRef, useState } from "react";
+import { useRef, useState, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
-=======
-import { FormEvent, useState } from "react";
-import emailjs from "emailjs-com";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import styles from "./contact.module.css";
-
-// using emailjs to handle all emails 
->>>>>>> origin/main
 
 export default function ContactPage() {
   const formRef = useRef<HTMLFormElement | null>(null);
   const [status, setStatus] = useState<null | "success" | "error">(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formRef.current) return;
 
-<<<<<<< HEAD
     try {
       const result = await emailjs.sendForm(
-        "service_xxxxx",      // <-- Replace with your Service ID
-        "template_xxxxx",     // <-- Replace with your Template ID
+        "service_xxxxx",   // TODO: replace with your actual Service ID
+        "template_xxxxx",  // TODO: replace with your Template ID
         formRef.current,
-        "public_xxxxx"        // <-- Replace with your Public Key
-=======
-    emailjs
-      .sendForm(
-        "service_wp5032e", // Service ID
-        "template_0kqcepg", // Template ID
-        form,
-        "KyHI9y3Pnfv8APkGw" // Public Key
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setStatus("Message sent!");
-          setStatusType("success");
-          form.reset();
-        },
-        (error) => {
-          console.error(error.text);
-          setStatus("Failed to send message");
-          setStatusType("error");
-        }
->>>>>>> origin/main
+        "public_xxxxx"     // TODO: replace with your Public Key
       );
 
       console.log("Email sent:", result.text);
@@ -67,20 +35,11 @@ export default function ContactPage() {
         Contact Us
       </h1>
 
-<<<<<<< HEAD
       <p className="text-muted mb-10 max-w-2xl">
         If you have any questions, concerns, or feedback regarding the Project
         Delta Library System, please fill out the form below. Our team will get
         back to you as soon as possible.
       </p>
-=======
-      <main className={styles["contact-page"]}>
-        <section className="contact-form-section">
-          <h2>Contact Us</h2>
-          <p>
-            If you have questions, feedback, or issues, send us a message and our team will respond as soon as possible.
-          </p>
->>>>>>> origin/main
 
       <form
         ref={formRef}
@@ -132,10 +91,14 @@ export default function ContactPage() {
 
         {/* Status Messages */}
         {status === "success" && (
-          <p className="text-green-700 text-sm mt-2">Message sent successfully!</p>
+          <p className="text-green-700 text-sm mt-2">
+            Message sent successfully!
+          </p>
         )}
         {status === "error" && (
-          <p className="text-red-700 text-sm mt-2">Failed to send message.</p>
+          <p className="text-red-700 text-sm mt-2">
+            Failed to send message.
+          </p>
         )}
       </form>
     </main>
