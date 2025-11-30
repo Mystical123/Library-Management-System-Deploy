@@ -13,10 +13,10 @@ export default function ContactPage() {
 
     try {
       await emailjs.sendForm(
-        "service_xxxxx",     // Replace with your Service ID
-        "template_xxxxx",    // Replace with your Template ID
+        "service_wp5032e",     
+        "template_0kqcepg",    
         formRef.current,
-        "public_xxxxx"       // Replace with your Public Key
+        "KyHI9y3Pnfv8APkGw"       
       );
 
       setStatus("success");
